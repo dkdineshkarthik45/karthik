@@ -7,6 +7,108 @@
 </head>
 <body>
     <h1>local page</h1>
-    
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body { font-family: Arial; background:#f2f2f2; }
+        .box {
+            width:300px; margin:100px auto;
+            padding:20px; background:white;
+            border-radius:10px; box-shadow:0 0 10px gray;
+        }
+        input, button {
+            width:100%; padding:10px; margin:10px 0;
+        }
+        button { background:black; color:white; border:none; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Login</h2>
+    <form action="shop.html">
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button>Login</button>
+    </form>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Electronics Shop</title>
+    <style>
+        body { font-family: Arial; background:#f5f5f5; }
+        .header {
+            background:white; padding:15px;
+            text-align:center; font-size:24px;
+            box-shadow:0 0 5px gray;
+        }
+        .products {
+            display:flex; flex-wrap:wrap;
+            justify-content:center;
+        }
+        .card {
+            background:white;
+            width:200px;
+            margin:10px;
+            padding:15px;
+            border-radius:10px;
+            text-align:center;
+            box-shadow:0 0 8px gray;
+        }
+        button {
+            padding:10px; width:100%;
+            background:black; color:white; border:none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">Electronics Store</div>
+
+<div class="products" id="products"></div>
+
+<script>
+const products = [
+"Smartphone","Laptop","Tablet","Smart Watch","Headphones",
+"Bluetooth Speaker","Camera","Power Bank","Charger","USB Cable",
+"Mouse","Keyboard","Monitor","Printer","Router",
+"External Hard Drive","SSD","Pendrive","Gaming Console","VR Headset",
+"Smart TV","Projector","Drone","Mic","Webcam",
+"Graphics Card","Motherboard","Processor","RAM","Cooling Fan",
+"Electric Kettle","Induction Stove","Air Fryer","Vacuum Cleaner","Iron Box",
+"Hair Dryer","Trimmer","Smart Bulb","Security Camera","Doorbell Camera"
+];
+
+const container = document.getElementById("products");
+
+products.forEach((p, i) => {
+    let price = (i+1)*1000;
+
+    container.innerHTML += `
+        <div class="card">
+            <h3>${p}</h3>
+            <p>₹${price}</p>
+            <button onclick="buy('${p}',${price})">Buy</button>
+        </div>
+    `;
+});
+
+function buy(product, price){
+    localStorage.setItem("product", product);
+    localStorage.setItem("price", price);
+    window.location.href = "payment.html";
+}
+
+</script>
+
+</body>
+</html>
+</div>
+
+</body>
+</html>
+
 </body>
 </html>
